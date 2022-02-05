@@ -1,6 +1,8 @@
 defmodule Connpass.SearchEvent do
   import Commandex
 
+  require Logger
+
   command do
     param :search_params
 
@@ -28,6 +30,8 @@ defmodule Connpass.SearchEvent do
   end
 
   def call_api(command, _params, %{api_url: api_url}) do
+    Logger.info("call #{api_url}")
+
     api_url
     |> HTTPoison.get()
     |> then(fn
