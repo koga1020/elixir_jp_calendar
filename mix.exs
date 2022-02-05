@@ -49,7 +49,8 @@ defmodule ElixirJpCalendar.MixProject do
       {:httpoison, "~> 1.8.0"},
       {:quinn, "~> 1.1.3"},
       {:params, "~> 2.0"},
-      {:commandex, "~> 0.4.1"}
+      {:commandex, "~> 0.4.1"},
+      {:ecto, "~> 3.7"}
     ]
   end
 
