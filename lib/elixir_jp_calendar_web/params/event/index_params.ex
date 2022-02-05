@@ -13,7 +13,7 @@ defmodule ElixirJpCalendarWeb.Event.IndexParams do
   end
 
   def ignore_invalid_source(%Ecto.Changeset{changes: %{source: source}} = ch) do
-    case source in ~w(event keyword) do
+    case source in ~w(#{@default_source} keyword) do
       true ->
         ch
 
