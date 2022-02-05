@@ -61,7 +61,12 @@ defmodule ElixirJpCalendar.EventServer do
       name: "space.ex",
       series_id: 10320,
       url: "https://spaceex.connpass.com/"
-    }
+    },
+    %{
+      name: "Pelemay",
+      series_id: 9485,
+      url: "https://pelemay.connpass.com/"
+    },
   ]
 
   def start_link(_) do
