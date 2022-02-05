@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="ja">
+  <head>
+    <meta charset="utf-8"/>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text x=%2250%%22 y=%2250%%22 style=%22dominant-baseline:central;text-anchor:middle;font-size:90px;%22>🗓</text></svg>">
+     <!-- Safari / IE -->
+    <link rel="icon alternate" type="image/png" href="https://twemoji.maxcdn.com/v/13.1.0/72x72/1f4c5.png" />
+    <meta property="og:url" content="https://elixir-jp-calendar.fly.dev" />
+    <meta property="og:title" content="Elixirイベントカレンダー" />
+    <meta property="og:type" content="website">
+    <meta property="og:description" content="connpassに掲載されているElixir関連イベントをまとめています" />
+    <meta name="twitter:card" content="summary" />
+    <meta property="og:site_name" content="elixir-jp-calendar" />
+    <meta property="og:locale" content="ja_JP" />
+
+    <%= csrf_meta_tag() %>
+    <title>ElixirJpCalendar</title>
+    <link phx-track-static rel="stylesheet" href={Routes.static_path(@conn, "/assets/app.css")}/>
+    <script defer phx-track-static type="text/javascript" src={Routes.static_path(@conn, "/assets/app.js")}></script>
+  </head>
+  <body>
+    <%= @inner_content %>
+  </body>
+</html>

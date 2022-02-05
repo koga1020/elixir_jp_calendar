@@ -1,0 +1,25 @@
+<.form
+  let={f}
+  for={:form}
+  id="source_form"
+>
+<%= label f, :source, "フィルタ" %>
+<%=  select f, :source, [
+    [key: "Elixirコミュニティのイベント", value: "community"],
+    [key: "\"elixir\" キーワード検索でHitしたイベント", value: "keyword"]
+], [id: "source"] %>
+
+</.form>
+
+<details>
+<summary>検索対象のコミュニティ一覧</summary>
+<ul>
+<%= for community <- @communities do %> 
+  <li>
+  <%= link(community.name, to: community.url, target: "_blank", rel: "noopener noreferrer") %>
+  </li>
+<% end %>
+</ul>
+</details>
+
+<div id="calendar"></div>

@@ -1,0 +1,4 @@
+[
+  import_deps: [:commandex, :ecto, :phoenix],
+  inputs: ["*.{ex,exs}", "{config,lib,test}/**/*.{ex,exs}"]
+]
