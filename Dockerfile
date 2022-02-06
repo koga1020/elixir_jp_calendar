@@ -18,7 +18,7 @@ ARG RUNNER_IMAGE="debian:bullseye-20210902-slim"
 FROM ${BUILDER_IMAGE} as builder
 
 # install build dependencies
-RUN apt-get update -y && apt-get install -y build-essential git \
+RUN apt-get update -y && apt-get install -y build-essential git npm\
     && apt-get clean && rm -f /var/lib/apt/lists/*_*
 
 # prepare build dir
@@ -49,6 +49,8 @@ COPY priv priv
 # your Elixir templates, you will need to move the asset compilation
 # step down so that `lib` is available.
 COPY assets assets
+
+RUN npm install --prefix assets
 
 # compile assets
 RUN mix assets.deploy

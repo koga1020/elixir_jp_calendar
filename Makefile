@@ -1,5 +1,3 @@
-deploy:
-	fly deploy
 serve:
 	iex -S mix phx.server --open
 logs:
