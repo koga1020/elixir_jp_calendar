@@ -40,6 +40,12 @@ let calendar = new Calendar(calendarEl, {
       dotEl.style.display = "none";
     }
   },
+  eventClick: function(event) {
+    if (event.event.url) {
+      event.jsEvent.preventDefault();
+      window.open(event.event.url, "_blank");
+    }
+  },
 });
 let selectEl = document.getElementById("source");
 selectEl.addEventListener("change", (e) => {
