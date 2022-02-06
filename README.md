@@ -18,6 +18,4 @@ $ make serve
 
 ## deploy
 
-```
-$ make deploy
-```
+https://github.com/koga1020/elixir_jp_calendar/compare/production...main
