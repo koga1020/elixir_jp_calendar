@@ -13,11 +13,7 @@ defmodule ElixirJpCalendar.Application do
         ElixirJpCalendarWeb.Telemetry,
         # Start the PubSub system
         {Phoenix.PubSub, name: ElixirJpCalendar.PubSub}
-      ] ++
-        event_server_with_mock(args) ++
-        [
-          ElixirJpCalendarWeb.Endpoint
-        ]
+      ] ++ event_server_with_mock(args)
 
     # See https://hexdocs.pm/elixir/Supervisor.html
     # for other strategies and supported options
@@ -36,11 +32,12 @@ defmodule ElixirJpCalendar.Application do
   def event_server_with_mock(env: :test) do
     [
       {Plug.Cowboy, scheme: :http, plug: ElixirJpCalendar.MockServer, options: [port: 8081]},
-      ElixirJpCalendar.EventServer
+      ElixirJpCalendar.EventServer,
+      ElixirJpCalendarWeb.Endpoint
     ]
   end
 
   def event_server_with_mock(_) do
-    [ElixirJpCalendar.EventServer]
+    [ElixirJpCalendar.EventServer, ElixirJpCalendarWeb.Endpoint]
   end
 end
