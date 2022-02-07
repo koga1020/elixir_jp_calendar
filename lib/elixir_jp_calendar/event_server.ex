@@ -128,7 +128,7 @@ defmodule ElixirJpCalendar.EventServer do
   end
 
   def fetch_events(params) do
-    Connpass.SearchEvent.run(%{search_params: params})
+    ExConnpass.run(%{query: params})
     |> case do
       %{success: true, data: %{events: events}} ->
         FullCalender.to_event_model(events)
