@@ -50,7 +50,8 @@ defmodule ElixirJpCalendar.MixProject do
       {:quinn, "~> 1.1.3"},
       {:params, "~> 2.0"},
       {:commandex, "~> 0.4.1"},
-      {:ecto, "~> 3.7"}
+      {:ecto, "~> 3.7"},
+      {:ex_connpass, git: "https://github.com/koga1020/ex_connpass.git"}
     ]
   end
 
