@@ -10,8 +10,12 @@ config :elixir_jp_calendar, ElixirJpCalendarWeb.Endpoint,
 # In test we don't send emails.
 config :elixir_jp_calendar, ElixirJpCalendar.Mailer, adapter: Swoosh.Adapters.Test
 
+config :elixir_jp_calendar, ElixirJpCalendar.EventServer, delay: 0
+
 # Print only warnings and errors during test
 config :logger, level: :warn
 
 # Initialize plugs at runtime for faster test compilation
 config :phoenix, :plug_init_mode, :runtime
+
+config :ex_connpass, api_base_url: "http://localhost:8081/"

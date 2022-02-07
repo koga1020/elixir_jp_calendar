@@ -19,7 +19,7 @@ defmodule ElixirJpCalendar.MixProject do
   # Type `mix help compile.app` for more information.
   def application do
     [
-      mod: {ElixirJpCalendar.Application, []},
+      mod: {ElixirJpCalendar.Application, [env: Mix.env()]},
       extra_applications: [:logger, :runtime_tools]
     ]
   end
@@ -50,7 +50,8 @@ defmodule ElixirJpCalendar.MixProject do
       {:quinn, "~> 1.1.3"},
       {:params, "~> 2.0"},
       {:commandex, "~> 0.4.1"},
-      {:ecto, "~> 3.7"}
+      {:ecto, "~> 3.7"},
+      {:ex_connpass, git: "https://github.com/koga1020/ex_connpass.git"}
     ]
   end
 

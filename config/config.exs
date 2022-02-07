@@ -14,6 +14,9 @@ config :elixir_jp_calendar, ElixirJpCalendarWeb.Endpoint,
   pubsub_server: ElixirJpCalendar.PubSub,
   live_view: [signing_salt: "q97W4qnE"]
 
+# ref: https://connpass.com/robots.txt
+config :elixir_jp_calendar, ElixirJpCalendar.EventServer, delay: 5000
+
 # Configures the mailer
 #
 # By default it uses the "Local" adapter which stores the emails
@@ -43,6 +46,8 @@ config :logger, :console,
 
 # Use Jason for JSON parsing in Phoenix
 config :phoenix, :json_library, Jason
+
+config :ex_connpass, api_base_url: "https://connpass.com/api/v1/event/"
 
 # Import environment specific config. This must remain at the bottom
 # of this file so it overrides the configuration defined above.
