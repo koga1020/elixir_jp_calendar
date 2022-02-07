@@ -6,18 +6,18 @@ defmodule ElixirJpCalendar.Application do
   use Application
 
   @impl true
-  def start(_type, _args) do
-    children = [
-      # Start the Telemetry supervisor
-      ElixirJpCalendarWeb.Telemetry,
-      # Start the PubSub system
-      {Phoenix.PubSub, name: ElixirJpCalendar.PubSub},
-      ElixirJpCalendar.EventServer,
-      # Start the Endpoint (http/https)
-      ElixirJpCalendarWeb.Endpoint
-      # Start a worker by calling: ElixirJpCalendar.Worker.start_link(arg)
-      # {ElixirJpCalendar.Worker, arg}
-    ]
+  def start(_type, args) do
+    children =
+      [
+        # Start the Telemetry supervisor
+        ElixirJpCalendarWeb.Telemetry,
+        # Start the PubSub system
+        {Phoenix.PubSub, name: ElixirJpCalendar.PubSub}
+      ] ++
+        event_server_with_mock(args) ++
+        [
+          ElixirJpCalendarWeb.Endpoint
+        ]
 
     # See https://hexdocs.pm/elixir/Supervisor.html
     # for other strategies and supported options
@@ -31,5 +31,16 @@ defmodule ElixirJpCalendar.Application do
   def config_change(changed, _new, removed) do
     ElixirJpCalendarWeb.Endpoint.config_change(changed, removed)
     :ok
+  end
+
+  def event_server_with_mock(env: :test) do
+    [
+      {Plug.Cowboy, scheme: :http, plug: ElixirJpCalendar.MockServer, options: [port: 8081]},
+      ElixirJpCalendar.EventServer
+    ]
+  end
+
+  def event_server_with_mock(_) do
+    [ElixirJpCalendar.EventServer]
   end
 end
