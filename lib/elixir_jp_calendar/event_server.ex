@@ -66,7 +66,7 @@ defmodule ElixirJpCalendar.EventServer do
       name: "Pelemay",
       series_id: 9485,
       url: "https://pelemay.connpass.com/"
-    },
+    }
   ]
 
   def start_link(_) do
@@ -113,8 +113,9 @@ defmodule ElixirJpCalendar.EventServer do
         {:keyword, params_for_elixir_keyword_event}
       ]
       |> Enum.map(fn {source, params} ->
-        # https://connpass.com/robots.txt
-        :timer.sleep(5000)
+        delay = Application.fetch_env!(:elixir_jp_calendar, ElixirJpCalendar.EventServer)[:delay]
+
+        :timer.sleep(delay)
 
         %{
           source: source,
