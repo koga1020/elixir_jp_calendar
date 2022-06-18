@@ -7,7 +7,6 @@ import jaLocale from "@fullcalendar/core/locales/ja";
 
 import dayGridPlugin from "@fullcalendar/daygrid";
 import listPlugin from "@fullcalendar/list";
-import "../css/custom.css";
 
 let calendarEl = document.getElementById("calendar");
 let calendar = new Calendar(calendarEl, {
