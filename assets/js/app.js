@@ -4,9 +4,10 @@ import { LiveSocket } from "phoenix_live_view";
 
 import { Calendar } from "@fullcalendar/core";
 import jaLocale from "@fullcalendar/core/locales/ja";
-
 import dayGridPlugin from "@fullcalendar/daygrid";
 import listPlugin from "@fullcalendar/list";
+
+import "../css/app.css"
 
 let calendarEl = document.getElementById("calendar");
 let calendar = new Calendar(calendarEl, {
