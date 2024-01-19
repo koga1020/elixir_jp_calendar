@@ -66,6 +66,11 @@ defmodule ElixirJpCalendar.EventServer do
       name: "Pelemay",
       series_id: 9485,
       url: "https://pelemay.connpass.com/"
+    },
+    %{
+      name: "daimon.ex",
+      series_id: 6634,
+      url: "https://daimon-ex.connpass.com/"
     }
   ]
 
